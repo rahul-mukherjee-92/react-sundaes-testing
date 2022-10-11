@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import { pricePerItem } from "../../constants";
-import { useOrderDetails } from "../../contexts/OrderDetails";
+import { formatCurrency, useOrderDetails } from "../../contexts/OrderDetails";
 import { AlertBanner } from "../common/AlertBanner";
 import { ScoopOption } from "./ScoopOption";
 import { ToppingOption } from "./ToppingOption";
@@ -43,7 +43,7 @@ export const Options = ({ optionType }) => {
   return (
     <>
       <h2>{title}</h2>
-      <p>{pricePerItem[optionType]} each</p>
+      <p>{formatCurrency(pricePerItem[optionType])} each</p>
       <p>
         {title} total {optionTotals.totals[optionType]}
       </p>
