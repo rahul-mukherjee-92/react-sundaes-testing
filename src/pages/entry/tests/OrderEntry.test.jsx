@@ -17,7 +17,7 @@ test("alert showing for error response coming from toppings or scoop routes", as
     })
   );
 
-  render(<OrderEntry />);
+  render(<OrderEntry setOrderPhase={jest.fn()} />);
   // below - wait until callback func doesn't throw error
   await waitFor(async () => {
     const alerts = await screen.findAllByRole("alert");

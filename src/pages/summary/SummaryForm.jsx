@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Form, OverlayTrigger, Popover } from "react-bootstrap";
 
-export const SummaryForm = () => {
+export const SummaryForm = ({ setOrderPhase }) => {
   const [checked, setChecked] = useState(false);
 
   const popover = (
@@ -29,7 +29,12 @@ export const SummaryForm = () => {
           onChange={(e) => setChecked(e.target.checked)}
           label={chkboxLabel}
         />
-        <Button type="submit" variant="primary" disabled={!checked}>
+        <Button
+          variant="primary"
+          disabled={!checked}
+          onClick={() => setOrderPhase("complete")}
+          className="confirm-btn"
+        >
           Confirm order
         </Button>
       </Form>
